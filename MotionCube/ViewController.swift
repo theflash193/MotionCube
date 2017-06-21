@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     
     @IBAction func TapAction(_ sender: UITapGestureRecognizer) {
         let square = factory.createForm(coord: sender.location(in: self.view), form: object.square)
-        square.backgroundColor = .black
         self.view.addSubview(square)
     }
     
