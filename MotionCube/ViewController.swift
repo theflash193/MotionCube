@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         dynamic = UIDynamicAnimator(referenceView: self.view)
 
         gravity.magnitude = 3
-        elasticity.elasticity = 1
+        elasticity.elasticity = 0.6
         dynamic.addBehavior(gravity)
         // Do any additional setup after loading the view, typically from a nib.
     }

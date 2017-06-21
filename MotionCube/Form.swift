@@ -15,10 +15,13 @@ enum object {
 }
 
 class Form: UIView {
+    var type: Int = 0
+    
     init(coord: CGPoint, form: object) {
         super.init(frame : CGRect(x: coord.x - 50, y: coord.y - 50, width: 100, height: 100))
         if form == object.circle {
             self.layer.cornerRadius = 50
+            self.type = 1
         }
         self.backgroundColor = randomColor()
     }
@@ -27,6 +30,12 @@ class Form: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override var collisionBoundsType: UIDynamicItemCollisionBoundsType {
+        if self.type == 1 {
+            return .ellipse
+        }
+        return .rectangle
+    }
 }
 
 class FactoryForm {
