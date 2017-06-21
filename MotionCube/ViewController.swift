@@ -9,7 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var factory = FactoryForm()
+    
+    @IBAction func TapAction(_ sender: UITapGestureRecognizer) {
+        let square = factory.createForm(coord: sender.location(in: self.view), form: object.square)
+        square.backgroundColor = .black
+        self.view.addSubview(square)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

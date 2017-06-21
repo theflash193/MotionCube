@@ -16,10 +16,11 @@ enum object {
 
 class Form: UIView {
     init(coord: CGPoint, form: object) {
-        super.init(frame : CGRect(x: coord.x, y: coord.y, width: 100, height: 100))
+        super.init(frame : CGRect(x: coord.x - 50, y: coord.y - 50, width: 100, height: 100))
         if form == object.circle {
             self.layer.cornerRadius = 50
         }
+        self.backgroundColor = .black
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -28,7 +29,7 @@ class Form: UIView {
     
 }
 
-class Factory {
+class FactoryForm {
     
     init() {
     }
