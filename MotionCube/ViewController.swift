@@ -10,10 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
     var factory = FactoryForm()
+    let dynamic = UIDynamicAnimator()
     
     @IBAction func TapAction(_ sender: UITapGestureRecognizer) {
         let square = factory.createAlea(coord: sender.location(in: self.view))
         self.view.addSubview(square)
+        
+        let gravity = UIGravityBehavior()
+        gravity.magnitude = 3
+        dynamic.addBehavior(gravity)
+        gravity.addItem(square)
     }
     
     override func viewDidLoad() {
