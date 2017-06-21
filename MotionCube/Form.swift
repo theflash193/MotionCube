@@ -40,6 +40,14 @@ class FactoryForm {
         }
         return Form(coord: coord, form: object.square)
     }
+    
+    func createAlea(coord: CGPoint) -> Form {
+        let rand = generateRandomNumber(1, 3)
+        if rand == 1 {
+            return self.createForm(coord: coord, form: object.square)
+        }
+        return self.createForm(coord: coord, form: object.circle)
+    }
 }
 
 func randomColor() -> UIColor {
@@ -49,3 +57,9 @@ func randomColor() -> UIColor {
     
     return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1)
 }
+
+func generateRandomNumber(_ min: Int,_ max: Int) -> Int {
+    let randomNum = Int(arc4random_uniform(UInt32(max) - UInt32(min)) + UInt32(min))
+    return randomNum
+}
+

@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     var factory = FactoryForm()
     
     @IBAction func TapAction(_ sender: UITapGestureRecognizer) {
-        let square = factory.createForm(coord: sender.location(in: self.view), form: object.square)
+        let square = factory.createAlea(coord: sender.location(in: self.view))
         self.view.addSubview(square)
     }
     
